@@ -1,0 +1,29 @@
+.header {
+  height: 56px;
+  background-color: #e91e63;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+  0 6px 10px 0 rgba(0, 0, 0, 0.14),
+  0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: grid;
+  grid-template-columns: auto min-content;
+  grid-template-rows: auto;
+  align-items: center;
+  align-content: center;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.text {
+  margin: 0;
+  padding: 0;
+  color: #FFFFFF;
+}
+
+.button {
+  color: #FFFFFF;
+}

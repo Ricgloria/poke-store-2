@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="input">
+  <mat-form-field appearance="standard">
+    <input [formControl]="filterControl" matInput placeholder="Busque seu pokemon">
+  </mat-form-field>
+</div>
+<div class="marketplace-container">
+  <ng-container *ngFor="let pokemon of filteredPokemon">
+    <app-pokemon-card [pokemon]="pokemon" (toCartPokemon)="sendToCart($event)"></app-pokemon-card>
+  </ng-container>
+</div>

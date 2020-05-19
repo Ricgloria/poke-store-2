@@ -1,0 +1,14 @@
+<mat-card class="cart-poke-card">
+  <img mat-card-avatar
+       [alt]="pokemon?.pokemon?.name"
+       [src]="pokemon?.pokemon?.image"
+       (error)=" pokemon.pokemon.image = 'assets/imgs/sem-foto.webp'"
+  >
+  <div class="cart-poke-title ellipsis">
+    <h3 class="title">{{pokemon?.pokemon?.name}}</h3>
+    <span class="value">{{pokemon?.pokemon?.price | currency: 'BRL' : 'symbol'}}</span>
+  </div>
+  <button (click)="onDeleteClick()" mat-icon-button>
+    <mat-icon style="color: #FFFFFF">delete_forever</mat-icon>
+  </button>
+</mat-card>

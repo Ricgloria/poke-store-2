@@ -1,0 +1,46 @@
+.card {
+  margin: 5px 16px 0;
+}
+
+.poke-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 100px 150px;
+  grid-template-rows: auto;
+  column-gap: 6px;
+}
+
+.data-area {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(3, auto);
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.text {
+  text-align: center;
+  max-width: 100%;
+  text-transform: capitalize;
+  margin-bottom: 0;
+  font-size: 18px;
+  color: #FFFFFF;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price {
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.button {
+  width: 100%;
+}

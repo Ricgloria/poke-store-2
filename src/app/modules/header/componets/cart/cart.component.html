@@ -1,0 +1,12 @@
+<div class="cart-component" [class.expanded-cart]="expandedOrNot">
+    <h2 class="text" [class.expanded-text]="expandedOrNot">Carrinho</h2>
+  <div class="cart-poke">
+    <ng-container *ngFor="let pok of pokemon">
+      <app-cart-item (deletedArrayIndex)="onDeletePokemonCartItem($event)" [pokemon]="pok"></app-cart-item>
+    </ng-container>
+  </div>
+  <div class="end-button">
+    <span class="total-text" [class.total-text-expanded]="expandedOrNot">Total: {{total | currency: 'BRL' : 'symbol'}}</span>
+    <button class="button" (click)="onFinishedBuyClick()" [class.expanded-button]="expandedOrNot" mat-flat-button>Finalizar Compra</button>
+  </div>
+</div>

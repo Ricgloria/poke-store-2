@@ -7,6 +7,6 @@
   </div>
   <div class="end-button">
     <span class="total-text" [class.total-text-expanded]="expandedOrNot">Total: {{total | currency: 'BRL' : 'symbol'}}</span>
-    <button class="button" (click)="onFinishedBuyClick()" [class.expanded-button]="expandedOrNot" mat-flat-button>Finalizar Compra</button>
+    <button class="button" (click)="onFinishedBuyClick()" [disabled]="!pokemon.length" [class.expanded-button]="expandedOrNot" mat-flat-button>Finalizar Compra</button>
   </div>
 </div>

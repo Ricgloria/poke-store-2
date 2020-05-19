@@ -54,6 +54,7 @@
 }
 
 .end-button {
+  padding-top: 6px;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: auto auto;

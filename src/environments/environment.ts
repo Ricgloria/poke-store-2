@@ -5,6 +5,8 @@
 export const environment = {
   production: false,
   pokeApi: 'https://pokeapi.co/api/v2/',
+  viaCep: 'https://viacep.com.br/ws',
+  ibge: 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
 };
 
 /*

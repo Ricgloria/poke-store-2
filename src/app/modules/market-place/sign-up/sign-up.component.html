@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <form [formGroup]="userForm" class="container">
+    <h1 style="color: #FFFFFF">Favor preencher</h1>
+    <div style="display: flex; flex-wrap: wrap;">
+      <div class="form-col">
+        <input formControlName="userName" placeholder="Nome" type="text">
+      </div>
+      <div class="form-col">
+        <input formControlName="email" placeholder="Email" type="email">
+      </div>
+    </div>
+    <h1 style="color: #FFFFFF; margin-top: 10px">Endereço</h1>
+    <div style="display: flex; flex-wrap: wrap;" formGroupName="address">
+      <div class="form-col">
+        <input #inputElement [mask]="mask.zipcode" (input)="checkZipAndRequest(inputElement.value)"
+               formControlName="postalCode" placeholder="CEP" type="text">
+      </div>
+      <div class="form-col">
+        <input mask="SS" formControlName="uf" placeholder="UF" type="text">
+      </div>
+      <div class="form-col">
+        <input formControlName="city" placeholder="Cidade" type="text">
+      </div>
+      <div class="form-col">
+        <input formControlName="neighborhood" placeholder="Bairro" type="text">
+      </div>
+      <div class="form-col">
+        <input formControlName="street" placeholder="Rua" type="text">
+      </div>
+      <div class="form-col">
+        <input formControlName="number" placeholder="Número" type="text">
+      </div>
+    </div>
+    <div style="display: flex; justify-content: flex-end">
+      <button (click)="postNewUser()" routerLink="../loja" [disabled]="userForm.invalid" mat-raised-button color="primary">Finalizar</button>
+    </div>
+  </form>
+</div>

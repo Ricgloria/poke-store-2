@@ -1,9 +1,12 @@
 <header class="header">
-    <h2 class="text">Sua Loja de Pokemon Lutador</h2>
-    <button (click)="expandOrNot()"
-            class="button"
-            mat-icon-button>
-      <mat-icon>shopping_cart</mat-icon>
-    </button>
+  <h2 class="text">Sua Loja de Pokemon Lutador</h2>
+  <button class="button" routerLink="../cadastro" mat-icon-button>
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <button (click)="expandOrNot()"
+          class="button"
+          mat-icon-button>
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
 </header>
 <app-cart></app-cart>

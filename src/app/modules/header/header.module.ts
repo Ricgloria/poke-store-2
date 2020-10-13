@@ -6,6 +6,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { CartComponent } from './componets/cart/cart.component';
 import {CartItemComponent} from './componets/cart-item/cart-item.component';
 import {MatCardModule} from '@angular/material/card';
+import {RouterModule} from '@angular/router';
 
 
 
@@ -15,12 +16,13 @@ import {MatCardModule} from '@angular/material/card';
     CartComponent,
     CartItemComponent
   ],
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule
-  ],
+    imports: [
+        CommonModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        RouterModule
+    ],
   exports: [
     HeaderComponent
   ]

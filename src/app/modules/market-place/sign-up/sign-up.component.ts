@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {mask} from '../../../shared/helpers/mask.helper';
 import {take} from 'rxjs/operators';
 import {AddressService} from '../../../core/api/address.service';
+import {User} from '../../../shared/models/user';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,6 +14,7 @@ export class SignUpComponent implements OnInit {
 
   userForm: FormGroup;
   mask = mask;
+  user: User;
 
   constructor(
     private fb: FormBuilder,
@@ -21,18 +23,26 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (localStorage.getItem('user')) {
+      this.user = JSON.parse(localStorage.getItem('user'));
+    }
+    this.buildForm();
+  }
+
+  buildForm() {
     this.userForm = this.fb.group({
-      userName: ['', Validators.required],
-      email: ['', Validators.email],
+      userName: [this.user?.userName || '', Validators.required],
+      email: [this.user?.email || '', Validators.email],
       address: this.fb.group({
-        street: ['', Validators.required],
-        postalCode: ['', Validators.required],
-        uf: ['', Validators.required],
-        city: ['', Validators.required],
-        neighborhood: ['', Validators.required],
-        number: ['', Validators.required],
+        street: [this.user?.address?.street || '', Validators.required],
+        postalCode: [this.user?.address?.postalCode || '', Validators.required],
+        uf: [this.user?.address?.uf || '', Validators.required],
+        city: [this.user?.address?.city || '', Validators.required],
+        neighborhood: [this.user?.address?.neighborhood || '', Validators.required],
+        number: [this.user?.address?.number || '', Validators.required],
       })
     });
+    this.user ? this.userForm.disable() : this.userForm.enable();
   }
 
   checkZipAndRequest(event: string) {
@@ -50,7 +60,12 @@ export class SignUpComponent implements OnInit {
     }
   }
 
+  edit() {
+    this.userForm.enabled ? this.userForm.disable() : this.userForm.enable();
+  }
+
   postNewUser() {
     console.log(this.userForm.getRawValue());
+    localStorage.setItem('user', JSON.stringify(this.userForm.getRawValue()));
   }
 }

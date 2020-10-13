@@ -32,7 +32,28 @@
       </div>
     </div>
     <div style="display: flex; justify-content: flex-end">
-      <button (click)="postNewUser()" routerLink="../loja" [disabled]="userForm.invalid" mat-raised-button color="primary">Finalizar</button>
+      <button
+        *ngIf="user"
+        style="color: #FFFFFF"
+        routerLink="../loja"
+        mat-raised-button color="primary">
+        Voltar
+      </button>
+      <button
+        *ngIf="user"
+        style="margin-left: 5px; color: #FFFFFF"
+        (click)="edit()" [disabled]="userForm.invalid" mat-stroked-button color="primary">
+        <ng-container *ngIf="userForm.enabled">
+          Cancelar
+        </ng-container>
+        <ng-container *ngIf="!userForm.enabled">
+          Editar
+        </ng-container>
+      </button>
+      <button style="margin-left: 5px"
+              (click)="postNewUser()" routerLink="../loja" [disabled]="userForm.invalid" mat-raised-button
+              color="primary">Salvar
+      </button>
     </div>
   </form>
 </div>
